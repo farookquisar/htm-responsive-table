@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Codepad: Responsive table</title>
+
+		<style>
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+			}
+
+			body {
+				background-color: #ffffff;
+				font-family: sans-serif;
+			}
+
+			table {
+				width: 100%;
+				border: 1px solid #ededed;
+				border-collapse: collapse;
+			}
+
+			table > thead > tr > th,
+			table > tbody > tr > td {
+				padding: 5px 10px;
+			}
+
+			table > thead > tr > th {
+				background-color: #ededed;
+			}
+
+			table > tbody > tr > td {
+				border: 1px solid #ededed;
+			}
+
+			@media (max-width: 767px) {
+				table {
+					border: 0;
+				}
+				table > thead {
+					display: none;
+				}
+				table > tbody > tr {
+					display: block;
+				}
+				table > tbody > tr + tr {
+					margin-top: 20px;
+					white-space: nowrap;
+				}
+				table > tbody > tr > td {
+					display: block;
+					border: 0;
+					border-bottom: 1px solid #d3d3d3;
+
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					width: 100%;
+				}
+				table > tbody > tr > td:before {
+					background-color: #ededed;
+					content: attr(data-thead);
+					display: inline-block;
+					margin: -5px 10px -5px -10px;
+					padding: 5px 10px;
+					width: 50%;
+				}
+				table > tbody > tr > td:first-child {
+					border-top: 1px solid #ededed;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>Num</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>E-mail</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td data-thead="Num">1</td>
+					<td data-thead="First Name">Jane</td>
+					<td data-thead="Last Name">Corner</td>
+					<td data-thead="E-mail">jane@email.com</td>
+				</tr>
+				<tr>
+					<td data-thead="Num">2</td>
+					<td data-thead="First Name">Kim</td>
+					<td data-thead="Last Name">Share</td>
+					<td data-thead="E-mail">kim@email.com</td>
+				</tr>
+				<tr>
+					<td data-thead="Num">3</td>
+					<td data-thead="First Name">Andrew</td>
+					<td data-thead="Last Name">Kurves</td>
+					<td data-thead="E-mail">andrew@email.com</td>
+				</tr>
+				<tr>
+					<td data-thead="Num">4</td>
+					<td data-thead="First Name">Lora</td>
+					<td data-thead="Last Name">White</td>
+					<td data-thead="E-mail">lora@email.com</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
